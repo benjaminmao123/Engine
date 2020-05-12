@@ -19,15 +19,12 @@ namespace bme
 
 		void AddState(State *state);
 		void AddTransition(State *start, State *end);
-		State *GetState(int id);
+		State *GetState(unsigned int id);
 
 	private:
-		void OnStateEnter();
-		void OnStateExit();
-		void OnStateUpdate();
-		void SwitchState();
+		void Evaluate();
 
-		unordered_map<int, State *> states;
+		unordered_map<unsigned int, State *> states;
 		State *activeState;
 	};
 }

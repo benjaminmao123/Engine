@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="AudioSource.cpp" />
     <ClCompile Include="ButtonRenderer.cpp" />
     <ClCompile Include="ButtonObject.cpp" />
     <ClCompile Include="Camera2D.cpp" />
@@ -163,7 +165,9 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Selectable.cpp" />
+    <ClCompile Include="SoundResource.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateCondition.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="StateTransition.cpp" />
     <ClCompile Include="TextObject.cpp" />
@@ -173,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayLibrary.h" />
+    <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="AudioSource.h" />
     <ClInclude Include="ButtonRenderer.h" />
     <ClInclude Include="ButtonObject.h" />
     <ClInclude Include="Camera2D.h" />
@@ -194,6 +200,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Selectable.h" />
+    <ClInclude Include="SoundResource.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateCondition.h" />
     <ClInclude Include="StateMachine.h" />

@@ -18,7 +18,7 @@ namespace bme
 		void Render();
 
 		void AddScene(Scene *scene);
-		void SetCurrentScene(int idx);
+		void SetCurrentScene(unsigned int idx);
 		Scene *CurrentScene();
 
 	private:

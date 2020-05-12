@@ -15,7 +15,7 @@ namespace bme
 	class Engine
 	{
 	public:
-		Engine(int32_t sWidth, int32_t sHeight, 
+		Engine(unsigned int sWidth, unsigned int sHeight, 
 			   const std::string &appName, const sf::Color &sClearColor);
 
 		void Start();

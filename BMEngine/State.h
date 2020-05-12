@@ -18,15 +18,16 @@ namespace bme
 		virtual void OnStateUpdate();
 		virtual void OnStateExit();
 
+		State *Evaluate();
 		void AddTransition(const StateTransition &transition);
 		void SetName(const std::string &name);
 		const std::string &GetName() const;
-		int GetID() const;
+		unsigned int GetID() const;
 
 	private:
 		std::string name;
-		int id;
-		static int nextID;
+		unsigned int id;
+		static unsigned int nextID;
 		vector<StateTransition> transitions;
 	};
 }

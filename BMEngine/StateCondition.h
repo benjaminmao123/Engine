@@ -5,9 +5,8 @@ namespace bme
 	class StateCondition
 	{
 	public:
-		
+		virtual ~StateCondition();
 
-	private:
-
+		virtual bool Evaluate() const = 0;
 	};
 }

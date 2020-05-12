@@ -1,10 +1,10 @@
 #include "Engine.h"
 
-bme::Engine::Engine(int32_t sWidth, int32_t sHeight, 
+bme::Engine::Engine(unsigned int sWidth, unsigned int sHeight, 
 					const std::string &appName, const sf::Color &sClearColor)
-	:	window(sf::VideoMode(sWidth, sHeight), appName), inputManager(window),
-		context(window, sceneManager, time, inputManager, resourceManager), 
-		appName(appName), screenClearColor(sClearColor)
+	: window(sf::VideoMode(sWidth, sHeight), appName), inputManager(window),
+	  context(window, sceneManager, time, inputManager, resourceManager), 
+	  appName(appName), screenClearColor(sClearColor), event()
 {
 
 }

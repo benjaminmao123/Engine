@@ -47,11 +47,11 @@ void bme::SceneManager::AddScene(Scene *scene)
 	scenes.push_back(scene);
 }
 
-void bme::SceneManager::SetCurrentScene(int idx)
+void bme::SceneManager::SetCurrentScene(unsigned int idx)
 {
 	if (!scenes.empty())
 	{
-		if (idx >= 0 && idx < scenes.size())
+		if (idx < scenes.size())
 			currentScene = scenes[idx];
 	}
 }

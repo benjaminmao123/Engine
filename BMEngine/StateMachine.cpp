@@ -5,42 +5,39 @@
 #include "GameObject.h"
 
 bme::StateMachine::StateMachine(GameObject *owner, Context &context)
-	: Component(owner, context)
+	: Component(owner, context), activeState(nullptr)
 {
 
 }
 
 void bme::StateMachine::Start()
 {
-	OnStateEnter();
-}
+	activeState = states[0];
 
-void bme::StateMachine::Update()
-{
-	
-}
-
-void bme::StateMachine::OnStateEnter()
-{
 	if (activeState)
 		activeState->OnStateEnter();
 }
 
-void bme::StateMachine::OnStateExit()
+void bme::StateMachine::Update()
 {
-	if (activeState)
-		activeState->OnStateExit();
+	Evaluate();
 }
 
-void bme::StateMachine::OnStateUpdate()
+void bme::StateMachine::Evaluate()
 {
 	if (activeState)
-		activeState->OnStateUpdate();
-}
+	{
+		State *next = activeState->Evaluate();
 
-void bme::StateMachine::SwitchState()
-{
-	//if (activeState->)
+		if (next)
+		{
+			activeState->OnStateExit();
+			activeState = next;
+			activeState->OnStateEnter();
+		}
+		else
+			activeState->OnStateUpdate();
+	}
 }
 
 void bme::StateMachine::AddState(State *state)
@@ -53,7 +50,7 @@ void bme::StateMachine::AddTransition(State *start, State *end)
 	start->AddTransition(StateTransition(start, end));
 }
 
-bme::State *bme::StateMachine::GetState(int id)
+bme::State *bme::StateMachine::GetState(unsigned int id)
 {
 	return states[id];
 }
