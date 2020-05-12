@@ -1,3 +1,8 @@
+/// <summary>
+///		Serves as the Button Component for users to
+///		use when creating UI.
+/// </summary>
+
 #include "Button.h"
 #include "GameObject.h"
 #include "TextRenderer.h"

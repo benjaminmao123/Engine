@@ -1,11 +1,3 @@
-/*
-	Author: Benjamin Mao
-	Project: BMEngine
-	Purpose: Serves as the Button Component for users to
-		use when creating UI.
-	Notes: None.
- */
-
 #pragma once
 
 #ifdef BMENGINE_EXPORTS 

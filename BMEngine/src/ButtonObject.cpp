@@ -1,3 +1,7 @@
+/// <summary>
+///		Premade UI button object.
+/// </summary>
+
 #include "ButtonObject.h"
 #include "Button.h"
 #include "TextObject.h"

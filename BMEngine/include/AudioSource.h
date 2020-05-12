@@ -1,11 +1,3 @@
-/* 
-	Author: Benjamin Mao
-	Project: BMEngine
-	Purpose: Class provides a way for the user to get sound
-		into their game.
-	Notes: None.
- */
-
 #pragma once
 
 #ifdef BMENGINE_EXPORTS 
