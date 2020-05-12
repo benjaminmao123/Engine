@@ -9,15 +9,15 @@ namespace bme
 {
 	class TextRenderer;
 
-	class ButtonRenderer : public Renderer2D, public Selectable
+	class Button : public Renderer2D, public Selectable
 	{
 	public:
-		ButtonRenderer(GameObject *owner, Context &context);
+		Button(GameObject *owner, Context &context);
 		
 		virtual void Start() override;
 		virtual void Update() override;
 		virtual void Render() override;
-		virtual ButtonRenderer *Clone(GameObject *owner) override;
+		virtual Button *Clone(GameObject *owner) override;
 
 		void Load(const std::string &path);
 		void Load(int id);

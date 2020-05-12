@@ -1,5 +1,5 @@
 #include "ButtonObject.h"
-#include "ButtonRenderer.h"
+#include "Button.h"
 #include "TextObject.h"
 #include "TextRenderer.h"
 
@@ -7,7 +7,7 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent,
 								const sf::Vector2f &pos, const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
-	AddComponent<ButtonRenderer>();
+	AddComponent<Button>();
 
 	GameObject *textObject = new TextObject(context, this);
 	AddChild(textObject);

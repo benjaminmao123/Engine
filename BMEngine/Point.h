@@ -6,13 +6,13 @@
 
 namespace bme
 {
-	class PointRenderer : public Renderer2D
+	class Point : public Renderer2D
 	{
 	public:
-		PointRenderer(GameObject *owner, Context &context);
+		Point(GameObject *owner, Context &context);
 
 		virtual void Render() override;
-		virtual PointRenderer *Clone(GameObject *owner) override;
+		virtual Point *Clone(GameObject *owner) override;
 
 		sf::CircleShape &GetPoint();
 

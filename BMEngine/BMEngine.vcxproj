@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AudioSource.cpp" />
-    <ClCompile Include="ButtonRenderer.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonObject.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="CameraObject.cpp" />
@@ -158,7 +158,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PointRenderer.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Renderer2D.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -179,7 +179,7 @@
     <ClInclude Include="ArrayLibrary.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AudioSource.h" />
-    <ClInclude Include="ButtonRenderer.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonObject.h" />
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="CameraObject.h" />
@@ -193,7 +193,7 @@
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="PointRenderer.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Renderer2D.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />

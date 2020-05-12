@@ -1,20 +1,19 @@
-#include "ButtonRenderer.h"
+#include "Button.h"
 #include "GameObject.h"
 #include "TextRenderer.h"
 #include "TextureResource.h"
 #include "Context.h"
 #include "ResourceManager.h"
 #include "InputManager.h"
-#include <iostream>
 
-bme::ButtonRenderer::ButtonRenderer(GameObject *owner, Context &context)
+bme::Button::Button(GameObject *owner, Context &context)
 	: Renderer2D(owner, context), text(nullptr),
 		frame(sf::Vector2f(100, 100))
 {
 	frame.setFillColor(GetNormalColor());
 }
 
-void bme::ButtonRenderer::Start()
+void bme::Button::Start()
 {
 	text = GetOwner()->GetComponentInChildren<TextRenderer>();
 
@@ -22,7 +21,7 @@ void bme::ButtonRenderer::Start()
 		text->SetZOrder(GetZOrder() + 1);
 }
 
-void bme::ButtonRenderer::Update()
+void bme::Button::Update()
 {
 	if (text)
 	{
@@ -39,16 +38,16 @@ void bme::ButtonRenderer::Update()
 		frame.setFillColor(GetDisabledColor());
 }
 
-void bme::ButtonRenderer::Render() 
+void bme::Button::Render() 
 {
 	Renderer2D::Render();
 
 	GetContext().GetWindow().draw(frame, GetWorldTransform());
 }
 
-bme::ButtonRenderer *bme::ButtonRenderer::Clone(GameObject *owner)
+bme::Button *bme::Button::Clone(GameObject *owner)
 {
-	ButtonRenderer *clone = new ButtonRenderer(owner, GetContext());
+	Button *clone = new Button(owner, GetContext());
 
 	clone->frame = frame;
 	clone->bounds = bounds;
@@ -68,7 +67,7 @@ bme::ButtonRenderer *bme::ButtonRenderer::Clone(GameObject *owner)
 	return clone;
 }
 
-void bme::ButtonRenderer::CheckSelection()
+void bme::Button::CheckSelection()
 {
 	ComputeBounds();
 
@@ -88,7 +87,7 @@ void bme::ButtonRenderer::CheckSelection()
 	}
 }
 
-void bme::ButtonRenderer::Load(const std::string &path)
+void bme::Button::Load(const std::string &path)
 {
 	int assetID = GetContext().GetResourceManager().Add<TextureResource>(path);
 	TextureResource *texture = GetContext().GetResourceManager().Get<TextureResource>(assetID);
@@ -97,7 +96,7 @@ void bme::ButtonRenderer::Load(const std::string &path)
 		frame.setTexture(&texture->Get());
 }
 
-void bme::ButtonRenderer::Load(int id)
+void bme::Button::Load(int id)
 {
 	TextureResource *texture = GetContext().GetResourceManager().Get<TextureResource>(id);
 
@@ -105,12 +104,12 @@ void bme::ButtonRenderer::Load(int id)
 		frame.setTexture(&texture->Get());
 }
 
-sf::RectangleShape &bme::ButtonRenderer::GetFrame()
+sf::RectangleShape &bme::Button::GetFrame()
 {
 	return frame;
 }
 
-void bme::ButtonRenderer::ComputeBounds()
+void bme::Button::ComputeBounds()
 {
 	sf::Vector2f transformPoint = GetWorldTransform().transformPoint(frame.getPosition());
 
