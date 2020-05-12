@@ -2,15 +2,13 @@
 
 bme::ResourceManager::~ResourceManager()
 {
-	for (auto i : resources)
+	for (auto &i : resources)
 		delete i.second;
-
-	resources.clear();
 }
 
 void bme::ResourceManager::Remove(int id)
 {
-	for (auto i : resources)
+	for (auto &i : resources)
 	{
 		if (i.second->ID() == id)
 		{

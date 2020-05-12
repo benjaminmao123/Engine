@@ -59,12 +59,8 @@ bme::GameObject::~GameObject()
 	for (auto &c : components)
 		delete c;
 
-	components.clear();
-
 	for (auto &go : children)
 		delete go;
-
-	children.clear();
 }
 
 void bme::GameObject::Awake()

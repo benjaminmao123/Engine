@@ -13,8 +13,6 @@ bme::Scene::~Scene()
 {
 	for (auto &go : gameObjects)
 		delete go;
-
-	gameObjects.clear();
 }
 
 void bme::Scene::Awake()

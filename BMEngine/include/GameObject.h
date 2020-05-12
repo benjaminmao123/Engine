@@ -7,8 +7,7 @@
 #endif
 
 #include <SFML\Graphics.hpp>
-
-#include "Vector.h"
+#include <vector>
 
 namespace bme
 {
@@ -69,8 +68,8 @@ namespace bme
 		template <typename T>
 		T *GetComponentInChildren(const GameObject *object);
 
-		vector<Component *> components;
-		vector<GameObject *> children;
+		std::vector<Component *> components;
+		std::vector<GameObject *> children;
 		Context &context;
 		GameObject *parent;
 		sf::Transform transform;
@@ -87,9 +86,9 @@ namespace bme
 	{
 		T *component = nullptr;
 
-		for (const auto &i : components)
+		for (const auto &c : components)
 		{
-			component = dynamic_cast<T *>(i);
+			component = dynamic_cast<T *>(c);
 
 			if (component)
 				break;
@@ -116,9 +115,9 @@ namespace bme
 		static_assert(std::is_base_of<Component, T>::value,
 			"T must derive from component!");
 
-		for (const auto &i : components)
+		for (const auto &c : components)
 		{
-			if (dynamic_cast<T *>(i))
+			if (dynamic_cast<T *>(c))
 				throw std::invalid_argument("Component already exists!");
 		}
 

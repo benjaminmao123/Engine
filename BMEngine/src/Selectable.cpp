@@ -9,6 +9,11 @@ bme::Selectable::Selectable()
 
 }
 
+bme::Selectable::~Selectable()
+{
+
+}
+
 void bme::Selectable::SetNormalColor(const sf::Color &color)
 {
 	normalColor = color;

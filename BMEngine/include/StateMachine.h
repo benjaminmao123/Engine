@@ -19,6 +19,7 @@ namespace bme
 	{
 	public:
 		StateMachine(GameObject *owner, Context &context);
+		virtual ~StateMachine() override;
 
 		virtual void Start() override;
 		virtual void Update() override;

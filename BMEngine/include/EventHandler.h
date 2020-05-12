@@ -6,25 +6,25 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include "Vector.h"
+#include <vector>
 
 namespace bme
 {
 	class Event;
 
-	class DLLEXPORT EventHandler
+	class EventHandler
 	{
 	public:
-		EventHandler();
-		EventHandler(const EventHandler &other);
-		~EventHandler();
+		DLLEXPORT EventHandler();
+		DLLEXPORT EventHandler(const EventHandler &other);
+		DLLEXPORT ~EventHandler();
 
-		void Invoke();
+		DLLEXPORT void Invoke();
 		
-		EventHandler &operator+=(Event *event);
-		EventHandler &operator-=(Event *event);
+		DLLEXPORT EventHandler &operator+=(Event *event);
+		DLLEXPORT EventHandler &operator-=(Event *event);
 
 	private:
-		vector<Event *> events;
+		std::vector<Event *> events;
 	};
 }

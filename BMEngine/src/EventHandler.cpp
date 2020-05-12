@@ -43,11 +43,11 @@ bme::EventHandler &bme::EventHandler::operator-=(Event *event)
 {
 	int index = 0;
 
-	for (auto &i : events)
+	for (auto &e : events)
 	{
-		if (i == event)
+		if (e == event)
 		{
-			events.erase(index);
+			events.erase(events.begin() + index);
 			break;
 		}
 

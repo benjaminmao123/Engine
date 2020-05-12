@@ -11,8 +11,6 @@ bme::SceneManager::~SceneManager()
 {
 	for (auto &scene : scenes)
 		delete scene;
-
-	scenes.clear();
 }
 
 void bme::SceneManager::Start()

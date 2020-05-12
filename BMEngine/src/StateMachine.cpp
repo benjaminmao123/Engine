@@ -10,6 +10,12 @@ bme::StateMachine::StateMachine(GameObject *owner, Context &context)
 
 }
 
+bme::StateMachine::~StateMachine()
+{
+	for (auto &pair : states)
+		delete pair.second;
+}
+
 void bme::StateMachine::Start()
 {
 	activeState = states[0];
