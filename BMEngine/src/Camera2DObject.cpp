@@ -1,12 +1,10 @@
 /// <summary>
-///		Premade UI button object.
+///		A premade Camera Object to do
+///		2D rendering.
 /// </summary>
 
-#include "ButtonObject.h"
-#include "Button.h"
-#include "TextObject.h"
-#include "Text.h"
-#include "Context.h"
+#include "Camera2DObject.h"
+#include "Camera2D.h"
 
 /// <summary>
 ///		Overloaded constructor. 
@@ -28,14 +26,12 @@
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent, 
-								const sf::Vector2f &pos, const std::string &name)
+bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent, 
+								const sf::Vector2f &pos, 
+								const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
-	AddComponent<Button>();
-
-	GameObject *textObject = new TextObject(context, this);
-	AddChild(textObject);
+	AddComponent<Camera2D>();
 }
 
 /// <summary>
@@ -49,8 +45,8 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context)
-	: ButtonObject(context, nullptr, sf::Vector2f(), "ButtonObject")
+bme::Camera2DObject::Camera2DObject(Context &context)
+	: Camera2DObject(context, nullptr, sf::Vector2f(), "CameraObject")
 {
 
 }
@@ -69,8 +65,8 @@ bme::ButtonObject::ButtonObject(Context &context)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent)
-	: ButtonObject(context, parent, sf::Vector2f(), "ButtonObject")
+bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent)
+	: Camera2DObject(context, parent, sf::Vector2f(), "CameraObject")
 {
 
 }
@@ -92,9 +88,8 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent, 
-								const sf::Vector2f &pos)
-	: ButtonObject(context, parent, pos, "ButtonObject")
+bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent, const sf::Vector2f &pos)
+	: Camera2DObject(context, parent, pos, "CameraObject")
 {
 
 }
@@ -113,8 +108,8 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos)
-	: ButtonObject(context, nullptr, pos, "ButtonObject")
+bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos)
+	: Camera2DObject(context, nullptr, pos, "CameraObject")
 {
 
 }
@@ -133,9 +128,8 @@ bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos, 
-								const std::string &name)
-	: ButtonObject(context, nullptr, pos, name)
+bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos, const std::string &name)
+	: Camera2DObject(context, nullptr, pos, name)
 {
 
 }
@@ -154,8 +148,8 @@ bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const std::string &name)
-	: ButtonObject(context, nullptr, sf::Vector2f(), name)
+bme::Camera2DObject::Camera2DObject(Context &context, const std::string &name)
+	: Camera2DObject(context, nullptr, sf::Vector2f(), name)
 {
 
 }

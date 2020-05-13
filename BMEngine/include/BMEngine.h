@@ -29,3 +29,4 @@
 #include "TextRenderer.h"
 #include "TextureResource.h"
 #include "TimeManager.h"
+#include "PointObject.h"

@@ -77,7 +77,7 @@ void bme::Scene::LateUpdate()
 
 void bme::Scene::Render()
 {
-	std::sort(gameObjects.begin(), gameObjects.end(),
+	std::sort(renderables.begin(), renderables.end(),
 		[](GameObject *a, GameObject *b)
 		{
 			Renderer2D *aRend = a->GetComponent<Renderer2D>();
@@ -91,19 +91,39 @@ void bme::Scene::Render()
 			return aRend->GetZOrder() < bRend->GetZOrder();
 		});
 
-	for (auto &go : gameObjects)
+	for (auto &go : renderables)
 	{
 		if (go->IsEnabled())
 			go->Render();
 	}
 }
 
-void bme::Scene::AddGameObject(GameObject *gameObject)
+void bme::Scene::AddGameObject(GameObject *object)
 {
-	gameObjects.push_back(gameObject);
+	gameObjects.emplace_back(object);
+	AddRenderable(object);
 }
 
 bme::Context &bme::Scene::GetContext()
 {
 	return context;
+}
+
+void bme::Scene::AddRenderable(GameObject *object)
+{
+	if (object->GetComponent<Renderer>())
+		renderables.emplace_back(object);
+
+	AddRenderableChildren(object);
+}
+
+void bme::Scene::AddRenderableChildren(GameObject *object)
+{
+	for (const auto &go : object->GetChildren())
+	{
+		AddRenderable(go);
+
+		if (go->GetComponent<Renderer>())
+			renderables.emplace_back(go);
+	}
 }

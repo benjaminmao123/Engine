@@ -1,30 +1,29 @@
-#include "TextRenderer.h"
+#include "Text.h"
 #include "Context.h"
 #include "ResourceManager.h"
 #include "FontResource.h"
+#include "GameObject.h"
 
-bme::TextRenderer::TextRenderer(GameObject *owner, Context &context)
-	: Renderer2D(owner, context), hAlign(HAlign::Center),
+bme::Text::Text(GameObject *owner, Context &context, int zOrder)
+	: Renderer2D(owner, context, zOrder), hAlign(HAlign::Center),
 	  vAlign(VAlign::Middle), rect(0, 0, 100, 100)
 {
 
 }
 
-void bme::TextRenderer::Update()
+void bme::Text::Update()
 {
 	AlignText();
 }
 
-void bme::TextRenderer::Render()
+void bme::Text::Render()
 {
-	Renderer2D::Render();
-
 	GetContext().GetWindow().draw(text, GetWorldTransform());
 }
 
-bme::TextRenderer *bme::TextRenderer::Clone(GameObject *owner)
+bme::Text *bme::Text::Clone(GameObject *owner)
 {
-	TextRenderer *clone = new TextRenderer(owner, GetContext());
+	Text *clone = new Text(owner, GetContext());
 	clone->SetExecutionOrder(GetExecutionOrder());
 	clone->SetZOrder(GetZOrder());
 	clone->text = text;
@@ -38,7 +37,7 @@ bme::TextRenderer *bme::TextRenderer::Clone(GameObject *owner)
 	return clone;
 }
 
-void bme::TextRenderer::Load(const std::string &path)
+void bme::Text::Load(const std::string &path)
 {
 	int assetID = GetContext().GetResourceManager().Add<FontResource>(path);
 	FontResource *font = GetContext().GetResourceManager().Get<FontResource>(assetID);
@@ -47,7 +46,7 @@ void bme::TextRenderer::Load(const std::string &path)
 		text.setFont(font->Get());
 }
 
-void bme::TextRenderer::Load(int id)
+void bme::Text::Load(int id)
 {
 	FontResource *font = GetContext().GetResourceManager().Get<FontResource>(id);
 
@@ -55,17 +54,17 @@ void bme::TextRenderer::Load(int id)
 		text.setFont(font->Get());
 }
 
-sf::Text &bme::TextRenderer::GetText()
+sf::Text &bme::Text::GetText()
 {
 	return text;
 }
 
-sf::FloatRect &bme::TextRenderer::GetRect()
+sf::FloatRect &bme::Text::GetRect()
 {
 	return rect;
 }
 
-void bme::TextRenderer::AlignText()
+void bme::Text::AlignText()
 {
 	text.setPosition(0, 0);
 

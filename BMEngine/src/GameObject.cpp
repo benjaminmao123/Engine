@@ -5,6 +5,7 @@
 #include "Component.h"
 #include "Context.h"
 #include "SceneManager.h"
+#include "Renderer.h"
 
 int bme::GameObject::nextID = 0;
 
@@ -74,7 +75,7 @@ void bme::GameObject::Awake()
 	for (auto &c : components)
 	{
 		if (c->GetIsEnabled() && !c->IsAwakeCalled())
-			c->Awake();
+			c->OnAwake();
 	}
 
 	for (auto &go : children)
@@ -89,7 +90,7 @@ void bme::GameObject::Start()
 	for (auto &c : components)
 	{
 		if (c->GetIsEnabled() && !c->IsStartCalled())
-			c->Start();
+			c->OnStart();
 	}
 
 	for (auto &go : children)
@@ -143,8 +144,10 @@ void bme::GameObject::Render()
 {
 	for (auto &c : components)
 	{
-		if (c->GetIsEnabled())
-			c->Render();
+		Renderer *rend = dynamic_cast<Renderer *>(c);
+
+		if (rend && rend->GetIsEnabled())
+			rend->OnRender();
 	}
 }
 
@@ -220,6 +223,11 @@ const std::string &bme::GameObject::GetName() const
 void bme::GameObject::SetName(const std::string &name)
 {
 	this->name = name;
+}
+
+const std::vector<bme::GameObject *> &bme::GameObject::GetChildren() const
+{
+	return children;
 }
 
 bme::Context &bme::GameObject::GetContext()

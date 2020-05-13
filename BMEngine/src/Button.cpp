@@ -5,7 +5,7 @@
 
 #include "Button.h"
 #include "GameObject.h"
-#include "TextRenderer.h"
+#include "Text.h"
 #include "TextureResource.h"
 #include "Context.h"
 #include "ResourceManager.h"
@@ -24,8 +24,8 @@
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Button::Button(GameObject *owner, Context &context)
-	: Renderer2D(owner, context), text(nullptr),
+bme::Button::Button(GameObject *owner, Context &context, int zOrder)
+	: Renderer2D(owner, context, zOrder), text(nullptr),
 	  frame(sf::Vector2f(100, 100))
 {
 	frame.setFillColor(GetNormalColor());
@@ -40,7 +40,7 @@ bme::Button::Button(GameObject *owner, Context &context)
 ///	</returns>
 void bme::Button::Start()
 {
-	text = GetOwner()->GetComponentInChildren<TextRenderer>();
+	text = GetOwner()->GetComponentInChildren<Text>();
 
 	if (text)
 		text->SetZOrder(GetZOrder() + 1);
@@ -79,8 +79,6 @@ void bme::Button::Update()
 ///	</returns>
 void bme::Button::Render() 
 {
-	Renderer2D::Render();
-
 	GetContext().GetWindow().draw(frame, GetWorldTransform());
 }
 

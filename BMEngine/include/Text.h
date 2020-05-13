@@ -26,19 +26,21 @@ namespace bme
 		Bottom
 	};
 
-	class DLLEXPORT TextRenderer : public Renderer2D
+	class DLLEXPORT Text : public Renderer2D
 	{
 	public:
-		TextRenderer(GameObject *owner, Context &context);
+		Text(GameObject *owner, Context &context, int zOrder = 0);
 
 		virtual void Update() override;
-		virtual void Render() override;
-		virtual TextRenderer *Clone(GameObject *owner) override;
+		virtual Text *Clone(GameObject *owner) override;
 
 		void Load(const std::string &path);
 		void Load(int id);
 		sf::Text &GetText();
 		sf::FloatRect &GetRect();
+
+	protected:
+		virtual void Render() override;
 
 	private:
 		void AlignText();

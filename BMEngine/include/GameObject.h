@@ -56,6 +56,7 @@ namespace bme
 		void SetIsEnabled(bool state);
 		const std::string &GetName() const;
 		void SetName(const std::string &name);
+		const std::vector<GameObject *> &GetChildren() const;
 
 	protected:
 		Context &GetContext();

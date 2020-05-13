@@ -1,16 +1,15 @@
 #include "Point.h"
 #include "Context.h"
+#include "GameObject.h"
 
-bme::Point::Point(GameObject *owner, Context &context)
-	: Renderer2D(owner, context), point(10)
+bme::Point::Point(GameObject *owner, Context &context, int zOrder)
+	: Renderer2D(owner, context, zOrder), point(10)
 {
 
 }
 
 void bme::Point::Render()
 {
-	Renderer2D::Render();
-
 	GetContext().GetWindow().draw(point, GetWorldTransform());
 }
 

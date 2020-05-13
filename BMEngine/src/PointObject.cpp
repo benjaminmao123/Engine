@@ -2,11 +2,9 @@
 ///		Premade UI button object.
 /// </summary>
 
-#include "ButtonObject.h"
-#include "Button.h"
-#include "TextObject.h"
-#include "Text.h"
+#include "PointObject.h"
 #include "Context.h"
+#include "Point.h"
 
 /// <summary>
 ///		Overloaded constructor. 
@@ -28,14 +26,11 @@
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent, 
-								const sf::Vector2f &pos, const std::string &name)
+bme::PointObject::PointObject(Context &context, GameObject *parent,
+	const sf::Vector2f &pos, const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
-	AddComponent<Button>();
-
-	GameObject *textObject = new TextObject(context, this);
-	AddChild(textObject);
+	AddComponent<Point>();
 }
 
 /// <summary>
@@ -49,8 +44,8 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context)
-	: ButtonObject(context, nullptr, sf::Vector2f(), "ButtonObject")
+bme::PointObject::PointObject(Context &context)
+	: PointObject(context, nullptr, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -69,8 +64,8 @@ bme::ButtonObject::ButtonObject(Context &context)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent)
-	: ButtonObject(context, parent, sf::Vector2f(), "ButtonObject")
+bme::PointObject::PointObject(Context &context, GameObject *parent)
+	: PointObject(context, parent, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -92,9 +87,9 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, GameObject *parent, 
-								const sf::Vector2f &pos)
-	: ButtonObject(context, parent, pos, "ButtonObject")
+bme::PointObject::PointObject(Context &context, GameObject *parent,
+	const sf::Vector2f &pos)
+	: PointObject(context, parent, pos, "PointObject")
 {
 
 }
@@ -113,8 +108,8 @@ bme::ButtonObject::ButtonObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos)
-	: ButtonObject(context, nullptr, pos, "ButtonObject")
+bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos)
+	: PointObject(context, nullptr, pos, "PointObject")
 {
 
 }
@@ -133,9 +128,9 @@ bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos, 
-								const std::string &name)
-	: ButtonObject(context, nullptr, pos, name)
+bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos,
+	const std::string &name)
+	: PointObject(context, nullptr, pos, name)
 {
 
 }
@@ -154,8 +149,8 @@ bme::ButtonObject::ButtonObject(Context &context, const sf::Vector2f &pos,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::ButtonObject::ButtonObject(Context &context, const std::string &name)
-	: ButtonObject(context, nullptr, sf::Vector2f(), name)
+bme::PointObject::PointObject(Context &context, const std::string &name)
+	: PointObject(context, nullptr, sf::Vector2f(), name)
 {
 
 }

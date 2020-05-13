@@ -1,13 +1,14 @@
 #include "TextObject.h"
-#include "TextRenderer.h"
+#include "Text.h"
+#include "Context.h"
 
 bme::TextObject::TextObject(Context &context, GameObject *parent, 
 							const sf::Vector2f &pos, const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
-	AddComponent<TextRenderer>();
+	AddComponent<Text>();
 
-	TextRenderer *text = GetComponent<TextRenderer>();
+	Text *text = GetComponent<Text>();
 	text->Load("./assets/fonts/arial.ttf");
 	text->GetText().setCharacterSize(15);
 	text->GetText().setFillColor(sf::Color::Red);

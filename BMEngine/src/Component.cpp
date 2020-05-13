@@ -1,3 +1,8 @@
+/// <summary>
+///		Base class inherited by all Component objects.
+///		
+/// </summary>
+
 #include "Component.h"
 #include "GameObject.h"
 #include "Context.h"
@@ -15,14 +20,26 @@ bme::Component::~Component()
 
 }
 
-void bme::Component::Awake()
+void bme::Component::OnAwake()
 {
 	isAwakeCalled = true;
+	Awake();
+}
+
+void bme::Component::OnStart()
+{
+	isStartCalled = true;
+	Start();
+}
+
+void bme::Component::Awake()
+{
+
 }
 
 void bme::Component::Start()
 {
-	isStartCalled = true;
+
 }
 
 void bme::Component::Update()
@@ -31,11 +48,6 @@ void bme::Component::Update()
 }
 
 void bme::Component::LateUpdate()
-{
-
-}
-
-void bme::Component::Render()
 {
 
 }

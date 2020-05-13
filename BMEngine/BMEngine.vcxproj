@@ -23,7 +23,7 @@
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\ButtonObject.cpp" />
     <ClCompile Include="src\Camera2D.cpp" />
-    <ClCompile Include="src\CameraObject.cpp" />
+    <ClCompile Include="src\Camera2DObject.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Context.cpp" />
     <ClCompile Include="src\Engine.cpp" />
@@ -33,6 +33,8 @@
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\Point.cpp" />
+    <ClCompile Include="src\PointObject.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Renderer2D.cpp" />
     <ClCompile Include="src\Resource.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -45,17 +47,17 @@
     <ClCompile Include="src\StateMachine.cpp" />
     <ClCompile Include="src\StateTransition.cpp" />
     <ClCompile Include="src\TextObject.cpp" />
-    <ClCompile Include="src\TextRenderer.cpp" />
+    <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\TextureResource.cpp" />
     <ClCompile Include="src\TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BMEngine.h" />
+    <ClInclude Include="..\..\CS003A\Homework\PredatorPreySFML\PredatorPreySFML\include\BMEngine.h" />
     <ClInclude Include="include\AudioSource.h" />
     <ClInclude Include="include\Button.h" />
     <ClInclude Include="include\ButtonObject.h" />
     <ClInclude Include="include\Camera2D.h" />
-    <ClInclude Include="include\CameraObject.h" />
+    <ClInclude Include="include\Camera2DObject.h" />
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\Context.h" />
     <ClInclude Include="include\Engine.h" />
@@ -63,10 +65,10 @@
     <ClInclude Include="include\EventHandler.h" />
     <ClInclude Include="include\FontResource.h" />
     <ClInclude Include="include\GameObject.h" />
-    <ClInclude Include="include\HashMap.h" />
     <ClInclude Include="include\InputManager.h" />
-    <ClInclude Include="include\List.h" />
     <ClInclude Include="include\Point.h" />
+    <ClInclude Include="include\PointObject.h" />
+    <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\Renderer2D.h" />
     <ClInclude Include="include\Resource.h" />
     <ClInclude Include="include\ResourceManager.h" />
@@ -79,10 +81,9 @@
     <ClInclude Include="include\StateMachine.h" />
     <ClInclude Include="include\StateTransition.h" />
     <ClInclude Include="include\TextObject.h" />
-    <ClInclude Include="include\TextRenderer.h" />
+    <ClInclude Include="include\Text.h" />
     <ClInclude Include="include\TextureResource.h" />
     <ClInclude Include="include\TimeManager.h" />
-    <ClInclude Include="include\Vector.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

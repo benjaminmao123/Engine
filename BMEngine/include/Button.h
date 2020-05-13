@@ -13,21 +13,23 @@
 
 namespace bme
 {
-	class TextRenderer;
+	class Text;
 
 	class DLLEXPORT Button : public Renderer2D, public Selectable
 	{
 	public:
-		Button(GameObject *owner, Context &context);
+		Button(GameObject *owner, Context &context, int zOrder = 0);
 		
 		virtual void Start() override;
 		virtual void Update() override;
-		virtual void Render() override;
 		virtual Button *Clone(GameObject *owner) override;
 
 		void Load(const std::string &path);
 		void Load(int id);
 		sf::RectangleShape &GetFrame();
+
+	protected:
+		virtual void Render() override;
 
 	private:
 		void ComputeBounds();
@@ -35,6 +37,6 @@ namespace bme
 
 		sf::RectangleShape frame;
 		sf::FloatRect bounds;
-		TextRenderer *text;
+		Text *text;
 	};
 }
