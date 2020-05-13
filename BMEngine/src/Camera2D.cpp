@@ -4,11 +4,12 @@
 ///		set by the user.
 /// </summary>
 
+#include "bmepch.h"
 #include "Camera2D.h"
 #include "Context.h"
 
 /// <summary>
-///		Overloaded constructor. Initializes owner of the class and context.
+///		Parameterized constructor. Initializes owner of the class and context.
 ///		Initializes the viewport to the size of the screen.
 /// </summary>
 /// <param name="owner">

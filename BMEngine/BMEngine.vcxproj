@@ -20,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AudioSource.cpp" />
+    <ClCompile Include="src\bmepch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\ButtonObject.cpp" />
     <ClCompile Include="src\Camera2D.cpp" />
@@ -54,6 +58,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\CS003A\Homework\PredatorPreySFML\PredatorPreySFML\include\BMEngine.h" />
     <ClInclude Include="include\AudioSource.h" />
+    <ClInclude Include="include\bmepch.h" />
     <ClInclude Include="include\Button.h" />
     <ClInclude Include="include\ButtonObject.h" />
     <ClInclude Include="include\Camera2D.h" />
@@ -168,6 +173,8 @@
       <PreprocessorDefinitions>BMENGINE_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\SFML;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>bmepch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -201,6 +208,8 @@
       <PreprocessorDefinitions>BMENGINE_EXPORTS;#ifdef BMENGINE_EXPORTS #define DLLEXPORT __declspec(dllexport) #else #define DLLEXPORT __declspec(dllimport) #endif;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include;</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>bmepch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

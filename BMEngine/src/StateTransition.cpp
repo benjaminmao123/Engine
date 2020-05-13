@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "StateTransition.h"
 #include "State.h"
 #include "StateCondition.h"

@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Renderer2D.h"
 #include "Context.h"
 #include "GameObject.h"

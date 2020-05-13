@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "TextureResource.h"
 
 bool bme::TextureResource::Load(const std::string &path)

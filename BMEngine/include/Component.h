@@ -6,8 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <SFML\Graphics.hpp>
-
 namespace bme
 {
 	class GameObject;
@@ -27,8 +25,6 @@ namespace bme
 
 		bool GetIsEnabled() const;
 		void SetIsEnabled(bool state);
-		bool IsAwakeCalled() const;
-		bool IsStartCalled() const;
 		int GetExecutionOrder() const;
 
 	protected:

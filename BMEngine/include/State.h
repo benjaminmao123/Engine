@@ -6,9 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <string>
-#include <vector>
-
 namespace bme
 {
 	class StateTransition;

@@ -102,6 +102,7 @@
     <ClCompile Include="src\PointObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\bmepch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AudioSource.h">
@@ -200,5 +201,6 @@
     <ClInclude Include="..\..\CS003A\Homework\PredatorPreySFML\PredatorPreySFML\include\BMEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\bmepch.h" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 ///		Premade UI button object.
 /// </summary>
 
+#include "bmepch.h"
 #include "ButtonObject.h"
 #include "Button.h"
 #include "TextObject.h"
@@ -9,7 +10,7 @@
 #include "Context.h"
 
 /// <summary>
-///		Overloaded constructor. 
+///		Parameterized constructor. 
 ///		Initializes context, the parent of the object, position, and name.
 /// </summary>
 /// <param name="context">

@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "SoundResource.h"
 
 bool bme::SoundResource::Load(const std::string &path)

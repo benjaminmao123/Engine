@@ -6,8 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <SFML\Graphics.hpp>
-
 #include "Resource.h"
 
 namespace bme

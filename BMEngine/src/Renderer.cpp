@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Renderer.h"
 
 bme::Renderer::Renderer(bme::GameObject *owner, bme::Context &context)

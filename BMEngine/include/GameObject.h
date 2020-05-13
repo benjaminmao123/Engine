@@ -6,9 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <SFML\Graphics.hpp>
-#include <vector>
-
 namespace bme
 {
 	class Scene;
@@ -38,6 +35,7 @@ namespace bme
 		GameObject *GetChild(const std::string &name);
 		static GameObject *Instantiate(const GameObject *object);
 		static GameObject *Instantiate(const GameObject *object, GameObject *parent);
+		static void Destroy(GameObject *&object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponent();
@@ -63,6 +61,7 @@ namespace bme
 
 	private:
 		GameObject *InstantiateHelper(const GameObject *object) const;
+		void DestroyHelper(GameObject *&object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponentInParent(const GameObject *parent);
@@ -82,6 +81,12 @@ namespace bme
 		static int nextID;
 	};
 	
+	/// <summary>
+	///		Retrieves the Component of the given type.
+	/// </summary>
+	///	<returns>
+	///		Pointer to the retrieved Component.
+	///	</returns>
 	template<typename T>
 	inline T *GameObject::GetComponent()
 	{
@@ -98,18 +103,41 @@ namespace bme
 		return component;
 	}
 	
+	/// <summary>
+	///		Recursively Retrieves the Component of the given 
+	///		type in parent.
+	/// </summary>
+	///	<returns>
+	///		Pointer to the retrieved Component.
+	///	</returns>
 	template<typename T>
 	inline T *GameObject::GetComponentInParent()
 	{
 		return GetComponentInParent<T>(this);
 	}
 	
+	/// <summary>
+	///		Recursively Retrieves the Component of the given 
+	///		type in children.
+	/// </summary>
+	///	<returns>
+	///		Pointer to the retrieved Component.
+	///	</returns>
 	template<typename T>
 	inline T *GameObject::GetComponentInChildren()
 	{
 		return GetComponentInChildren<T>(this);
 	}
 	
+	/// <summary>
+	///		Adds a Component to the GameObject and returns
+	///		the Component. Throws an error if a duplicate exists.
+	/// </summary>
+	/// <param name="...types">
+	///		Takes an arbitrary amount of arguments.
+	///	<returns>
+	///		Pointer to the added Component.
+	///	</returns>
 	template<typename T, typename ...Types>
 	inline T *GameObject::AddComponent(Types & ...types)
 	{
@@ -128,6 +156,15 @@ namespace bme
 		return component;
 	}
 	
+	/// <summary>
+	///		Helper function that retrieves a Component in the 
+	///		parent GameObject 
+	/// </summary>
+	/// <param name="parent">
+	///		The parent GameObject.
+	///	<returns>
+	///		Pointer to the retrieved Component.
+	///	</returns>
 	template<typename T>
 	inline T *GameObject::GetComponentInParent(const GameObject *parent)
 	{
@@ -149,6 +186,15 @@ namespace bme
 		return component;
 	}
 	
+	/// <summary>
+	///		Helper function that retrieves a Component in the 
+	///		children GameObjects.
+	/// </summary>
+	/// <param name="object">
+	///		The child GameObject.
+	///	<returns>
+	///		Pointer to the retrieved Component.
+	///	</returns>
 	template<typename T>
 	inline T *GameObject::GetComponentInChildren(const GameObject *object)
 	{

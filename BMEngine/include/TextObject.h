@@ -6,9 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <SFML\Graphics.hpp>
-#include <string>
-
 #include "GameObject.h"
 
 namespace bme

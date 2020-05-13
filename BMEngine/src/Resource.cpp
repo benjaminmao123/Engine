@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Resource.h"
 
 int bme::Resource::nextID = 0;

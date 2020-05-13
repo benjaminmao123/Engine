@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "ResourceManager.h"
 
 bme::ResourceManager::~ResourceManager()

@@ -3,6 +3,7 @@
 ///		use when creating UI.
 /// </summary>
 
+#include "bmepch.h"
 #include "Button.h"
 #include "GameObject.h"
 #include "Text.h"
@@ -12,7 +13,7 @@
 #include "InputManager.h"
 
 /// <summary>
-///		Overloaded constructor. Initializes owner of the class and context.
+///		Parameterized constructor. Initializes owner of the class and context.
 /// </summary>
 /// <param name="owner">
 ///		The GameObject that owns this component.

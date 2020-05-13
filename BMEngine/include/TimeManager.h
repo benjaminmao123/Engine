@@ -6,8 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <SFML\System.hpp>
-
 namespace bme
 {
 	class DLLEXPORT TimeManager

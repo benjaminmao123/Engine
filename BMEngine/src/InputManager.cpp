@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "InputManager.h"
 
 bme::InputManager::InputManager(const sf::RenderWindow &window)

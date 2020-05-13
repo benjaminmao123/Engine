@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Scene.h"
 #include "Context.h"
 #include "Renderer2D.h"

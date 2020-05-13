@@ -6,11 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <string>
-#include <SFML\Graphics.hpp>
-#include <utility>
-#include <unordered_map>
-
 #include "Resource.h"
 
 namespace bme

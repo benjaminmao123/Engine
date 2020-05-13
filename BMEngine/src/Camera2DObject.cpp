@@ -3,11 +3,12 @@
 ///		2D rendering.
 /// </summary>
 
+#include "bmepch.h"
 #include "Camera2DObject.h"
 #include "Camera2D.h"
 
 /// <summary>
-///		Overloaded constructor. 
+///		Parameterized constructor. 
 ///		Initializes context, the parent of the object, position, and name.
 /// </summary>
 /// <param name="context">

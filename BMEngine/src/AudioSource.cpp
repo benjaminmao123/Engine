@@ -3,6 +3,7 @@
 ///		into their game.
 /// </summary>
 
+#include "bmepch.h"
 #include "AudioSource.h"
 #include "SoundResource.h"
 #include "ResourceManager.h"
@@ -10,7 +11,7 @@
 #include "GameObject.h"
 
 /// <summary>
-///		Overloaded constructor. Initializes owner of the class and context.
+///		Parameterized constructor. Initializes owner of the class and context.
 /// </summary>
 /// <param name="owner">
 ///		The GameObject that owns this component.

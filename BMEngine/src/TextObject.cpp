@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "TextObject.h"
 #include "Text.h"
 #include "Context.h"

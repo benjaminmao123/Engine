@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "StateMachine.h"
 #include "State.h"
 #include "StateTransition.h"

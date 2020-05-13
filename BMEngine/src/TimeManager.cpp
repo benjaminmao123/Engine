@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "TimeManager.h"
 
 bme::TimeManager::TimeManager()

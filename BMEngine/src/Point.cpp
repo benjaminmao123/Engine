@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Point.h"
 #include "Context.h"
 #include "GameObject.h"

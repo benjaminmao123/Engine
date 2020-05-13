@@ -2,6 +2,7 @@
 ///		Premade UI button object.
 /// </summary>
 
+#include "bmepch.h"
 #include "PointObject.h"
 #include "Context.h"
 #include "Point.h"

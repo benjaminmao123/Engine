@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "Selectable.h"
 
 bme::Selectable::Selectable()

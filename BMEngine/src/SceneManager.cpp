@@ -1,3 +1,4 @@
+#include "bmepch.h"
 #include "SceneManager.h"
 #include "Scene.h"
 

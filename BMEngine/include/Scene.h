@@ -6,8 +6,6 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
-#include <vector>
-
 namespace bme
 {
 	class GameObject;
