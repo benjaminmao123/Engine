@@ -1,6 +1,15 @@
 #include "CameraObject.h"
 #include "Camera2D.h"
 
+/// <summary>
+///		
+/// </summary>
+/// <param name="owner">
+///		The GameObject that owns this component.
+///	</param>
+///	<returns>
+///		A pointer to the clone.
+///	</returns>
 bme::CameraObject::CameraObject(Context &context, GameObject *parent, 
 								const sf::Vector2f &pos, 
 								const std::string &name)

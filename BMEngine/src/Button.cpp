@@ -17,7 +17,7 @@
 /// <param name="owner">
 ///		The GameObject that owns this component.
 ///	</param>
-/// <param name="context>
+/// <param name="context">
 ///		Context object that contains relevant information
 ///		needed by the class.
 ///	</param>
