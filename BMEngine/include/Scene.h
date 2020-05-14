@@ -7,6 +7,7 @@
 #endif
 
 #include <vector>
+#include <queue>
 
 namespace bme
 {
@@ -19,21 +20,28 @@ namespace bme
 		DLLEXPORT Scene(Context &context);
 		DLLEXPORT virtual ~Scene();
 
-		DLLEXPORT virtual void Awake();
-		DLLEXPORT virtual void Start();
-		DLLEXPORT virtual void Update();
-		DLLEXPORT virtual void LateUpdate();
-		DLLEXPORT virtual void Render();
+		DLLEXPORT void OnAwake();
+		DLLEXPORT void OnStart();
+		DLLEXPORT void Update();
+		DLLEXPORT void LateUpdate();
+		DLLEXPORT void Render();
 
 		DLLEXPORT void AddGameObject(GameObject *object);
 		DLLEXPORT Context &GetContext();
+		DLLEXPORT void RemoveGameObject(GameObject *object, int id);
+		DLLEXPORT void ProcessRemoval();
+
+	protected:
+		DLLEXPORT virtual void Awake();
+		DLLEXPORT virtual void Start();
 
 	private:
 		void AddRenderable(GameObject *object);
 		void AddRenderableChildren(GameObject *object);
 
 		Context &context;
-		std::vector<GameObject *> gameObjects;
+		std::vector<GameObject *> hierarchy;
 		std::vector<GameObject *> renderables;
+		std::queue<GameObject *> toRemove;
 	};
 }

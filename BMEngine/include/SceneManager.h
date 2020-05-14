@@ -18,7 +18,6 @@ namespace bme
 		DLLEXPORT SceneManager();
 		DLLEXPORT ~SceneManager();
 
-		DLLEXPORT void Start();
 		DLLEXPORT void Update();
 		DLLEXPORT void LateUpdate();
 		DLLEXPORT void Render();
@@ -28,6 +27,9 @@ namespace bme
 		DLLEXPORT Scene *CurrentScene();
 
 	private:
+		void Awake();
+		void Start();
+
 		std::vector<Scene *> scenes;
 		Scene *currentScene;
 	};

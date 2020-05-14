@@ -12,43 +12,59 @@ bme::Scene::Scene(Context &context)
 
 bme::Scene::~Scene()
 {
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 		delete go;
+}
+
+void bme::Scene::OnAwake()
+{
+	for (auto &go : hierarchy)
+	{
+		if (go->IsEnabled())
+			go->Awake();
+	}
+
+	Awake();
+}
+
+void bme::Scene::OnStart()
+{
+	for (auto &go : hierarchy)
+	{
+		if (go->IsEnabled())
+			go->Start();
+	}
+
+	Start();
 }
 
 void bme::Scene::Awake()
 {
-	for (auto &go : gameObjects)
-	{
-		if (go->IsEnabled())
-			go->Awake();
-	}
+
 }
 
 void bme::Scene::Start()
 {
-	for (auto &go : gameObjects)
-	{
-		if (go->IsEnabled())
-			go->Start();
-	}
+
 }
 
 void bme::Scene::Update()
 {
-	for (auto &go : gameObjects)
+	ProcessRemoval();
+
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->Awake();
 	}
 
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->Start();
 	}
 
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->Update(go->GetTransform());
@@ -57,19 +73,19 @@ void bme::Scene::Update()
 
 void bme::Scene::LateUpdate()
 {
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->Awake();
 	}
 
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->Start();
 	}
 
-	for (auto &go : gameObjects)
+	for (auto &go : hierarchy)
 	{
 		if (go->IsEnabled())
 			go->LateUpdate(go->GetTransform());
@@ -101,7 +117,7 @@ void bme::Scene::Render()
 
 void bme::Scene::AddGameObject(GameObject *object)
 {
-	gameObjects.emplace_back(object);
+	hierarchy.push_back(object);
 	AddRenderable(object);
 }
 
@@ -110,10 +126,54 @@ bme::Context &bme::Scene::GetContext()
 	return context;
 }
 
+void bme::Scene::RemoveGameObject(GameObject *object, int id)
+{
+	for (auto rIt = renderables.begin(); rIt != renderables.end(); ++rIt)
+	{
+		if ((*rIt)->GetID() == id)
+		{
+			toRemove.push(*rIt);
+			renderables.erase(rIt);
+			break;
+		}
+	}
+
+	for (auto hIt = hierarchy.begin(); hIt != hierarchy.end(); ++hIt)
+	{
+		if ((*hIt)->GetID() != id)
+		{
+			for (auto cIt = (*hIt)->GetChildren().begin(); cIt != (*hIt)->GetChildren().end(); ++cIt)
+			{
+				if ((*cIt)->GetID() == id)
+				{
+					(*hIt)->GetChildren().erase(cIt);
+					return;
+				}
+				else
+					RemoveGameObject(*cIt, id);
+			}
+		}
+		else
+		{
+			hierarchy.erase(hIt);
+			break;
+		}
+	}
+}
+
+void bme::Scene::ProcessRemoval()
+{
+	while (!toRemove.empty())
+	{
+		delete toRemove.front();
+		toRemove.pop();
+	}
+}
+
 void bme::Scene::AddRenderable(GameObject *object)
 {
 	if (object->GetComponent<Renderer>())
-		renderables.emplace_back(object);
+		renderables.push_back(object);
 
 	AddRenderableChildren(object);
 }
@@ -125,6 +185,6 @@ void bme::Scene::AddRenderableChildren(GameObject *object)
 		AddRenderable(go);
 
 		if (go->GetComponent<Renderer>())
-			renderables.emplace_back(go);
+			renderables.push_back(go);
 	}
 }

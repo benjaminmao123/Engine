@@ -39,7 +39,7 @@ namespace bme
 		GameObject *GetChild(const std::string &name);
 		static GameObject *Instantiate(GameObject *object);
 		static GameObject *Instantiate(GameObject *object, GameObject *parent);
-		static void Destroy(GameObject *&object, float waitTime = 0);
+		static void Destroy(GameObject *object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponent();
@@ -58,14 +58,15 @@ namespace bme
 		void SetIsEnabled(bool state);
 		const std::string &GetName() const;
 		void SetName(const std::string &name);
-		const std::vector<GameObject *> &GetChildren() const;
+		std::vector<GameObject *> &GetChildren();
+		int GetID() const;
 
 	protected:
 		Context &GetContext();
 
 	private:
 		static GameObject *InstantiateHelper(GameObject *object);
-		static void DestroyHelper(GameObject *&object, float waitTime = 0);
+		static void DestroyHelper(GameObject *object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponentInParent(const GameObject *parent);

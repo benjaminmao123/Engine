@@ -203,4 +203,7 @@
     </ClInclude>
     <ClInclude Include="include\bmepch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
 </Project>

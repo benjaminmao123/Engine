@@ -46,9 +46,9 @@ bme::Engine::Engine(unsigned int sWidth, unsigned int sHeight,
 ///	<returns>
 ///		void
 ///	</returns>
-void bme::Engine::Start()
+void bme::Engine::Run()
 {
-	sceneManager.Start();
+	sceneManager.SetCurrentScene(0);
 
 	while (window.isOpen())
 	{

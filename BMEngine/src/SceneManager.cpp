@@ -14,13 +14,16 @@ bme::SceneManager::~SceneManager()
 		delete scene;
 }
 
+void bme::SceneManager::Awake()
+{
+	if (currentScene)
+		currentScene->OnAwake();
+}
+
 void bme::SceneManager::Start()
 {
-	if (!scenes.empty())
-	{
-		currentScene = scenes[0];
-		currentScene->Start();
-	}
+	if (currentScene)
+		currentScene->OnStart();
 }
 
 void bme::SceneManager::Update()
@@ -51,7 +54,11 @@ void bme::SceneManager::SetCurrentScene(unsigned int idx)
 	if (!scenes.empty())
 	{
 		if (idx < scenes.size())
+		{
 			currentScene = scenes[idx];
+			Awake();
+			Start();
+		}
 	}
 }
 

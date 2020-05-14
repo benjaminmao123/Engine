@@ -24,7 +24,7 @@ namespace bme
 		Engine(unsigned int sWidth, unsigned int sHeight,
 			   const std::string &appName, const sf::Color &sClearColor);
 
-		void Start();
+		void Run();
 		void Update();
 		void LateUpdate();
 		void Render();

@@ -90,6 +90,9 @@
     <ClInclude Include="include\TextureResource.h" />
     <ClInclude Include="include\TimeManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{96FA07C5-222B-48ED-983C-E09E1D0414FD}</ProjectGuid>

@@ -402,7 +402,7 @@ bme::GameObject *bme::GameObject::Instantiate(GameObject *object, GameObject *pa
 ///	<returns>
 ///		void
 ///	</returns>
-void bme::GameObject::Destroy(GameObject *&object, float waitTime)
+void bme::GameObject::Destroy(GameObject *object, float waitTime)
 {
 	auto ret = std::async(std::launch::async, &GameObject::DestroyHelper, std::ref(object), waitTime);
 }
@@ -507,9 +507,20 @@ void bme::GameObject::SetName(const std::string &name)
 ///	<returns>
 ///		A std::vector containing the list of children.
 ///	</returns>
-const std::vector<bme::GameObject *> &bme::GameObject::GetChildren() const
+std::vector<bme::GameObject *> &bme::GameObject::GetChildren()
 {
 	return children;
+}
+
+/// <summary>
+///		Getter for the ID of the GameObject.
+/// </summary>
+///	<returns>
+///		The GameObject's ID.
+///	</returns>
+int bme::GameObject::GetID() const
+{
+	return id;
 }
 
 /// <summary>
@@ -568,13 +579,12 @@ bme::GameObject *bme::GameObject::InstantiateHelper(GameObject *object)
 ///	<returns>
 ///		A pointer to the GameObject that was created.
 ///	</returns>
-void bme::GameObject::DestroyHelper(GameObject *&object, float waitTime)
+void bme::GameObject::DestroyHelper(GameObject *object, float waitTime)
 {
 	float elapsedTime = 0;
 
 	while (elapsedTime < waitTime)
 		elapsedTime += object->GetContext().GetTimeManager().GetDeltaTime();
 
-	delete object;
-	object = nullptr;
+	object->GetContext().GetSceneManager().CurrentScene()->RemoveGameObject(object, object->GetID());
 }
