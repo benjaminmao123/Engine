@@ -10,6 +10,11 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base class for all resources that are managed by
+	///		the ResourceManager. Each resource contains a unique id
+	///		and path.
+	/// </summary>
 	class DLLEXPORT Resource
 	{
 	public:

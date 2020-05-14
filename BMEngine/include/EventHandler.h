@@ -12,6 +12,10 @@ namespace bme
 {
 	class Event;
 
+	/// <summary>
+	///		Handles invoking events, adding, and removing
+	///		events.
+	/// </summary>
 	class EventHandler
 	{
 	public:

@@ -15,6 +15,10 @@ namespace bme
 	class InputManager;
 	class ResourceManager;
 
+	/// <summary>
+	///		Context class is used to provide necessary arguments that are used
+	///		by Scenes, GameObjects, and Components.
+	/// </summary>
 	class DLLEXPORT Context
 	{
 	public:

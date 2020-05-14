@@ -1,8 +1,3 @@
-/// <summary>
-///		A premade Camera Object to do
-///		2D rendering.
-/// </summary>
-
 #include "bmepch.h"
 #include "Camera2DObject.h"
 #include "Camera2D.h"

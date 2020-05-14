@@ -1,7 +1,3 @@
-/// <summary>
-///		Base class inherited by all Component objects.
-/// </summary>
-
 #include "bmepch.h"
 #include "Component.h"
 #include "GameObject.h"

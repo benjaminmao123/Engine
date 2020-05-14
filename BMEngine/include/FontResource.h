@@ -13,6 +13,9 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Handles loading and retrieving font resources.
+	/// </summary>
 	class DLLEXPORT FontResource : public Resource
 	{
 	public:

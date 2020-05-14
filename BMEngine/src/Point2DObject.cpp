@@ -1,9 +1,5 @@
-/// <summary>
-///		Premade UI button object.
-/// </summary>
-
 #include "bmepch.h"
-#include "PointObject.h"
+#include "Point2DObject.h"
 #include "Context.h"
 #include "Point.h"
 
@@ -27,7 +23,7 @@
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, GameObject *parent,
+bme::Point2DObject::Point2DObject(Context &context, GameObject *parent,
 	const sf::Vector2f &pos, const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
@@ -45,8 +41,8 @@ bme::PointObject::PointObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context)
-	: PointObject(context, nullptr, sf::Vector2f(), "PointObject")
+bme::Point2DObject::Point2DObject(Context &context)
+	: Point2DObject(context, nullptr, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -65,8 +61,8 @@ bme::PointObject::PointObject(Context &context)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, GameObject *parent)
-	: PointObject(context, parent, sf::Vector2f(), "PointObject")
+bme::Point2DObject::Point2DObject(Context &context, GameObject *parent)
+	: Point2DObject(context, parent, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -88,9 +84,9 @@ bme::PointObject::PointObject(Context &context, GameObject *parent)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, GameObject *parent,
+bme::Point2DObject::Point2DObject(Context &context, GameObject *parent,
 	const sf::Vector2f &pos)
-	: PointObject(context, parent, pos, "PointObject")
+	: Point2DObject(context, parent, pos, "PointObject")
 {
 
 }
@@ -109,8 +105,8 @@ bme::PointObject::PointObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos)
-	: PointObject(context, nullptr, pos, "PointObject")
+bme::Point2DObject::Point2DObject(Context &context, const sf::Vector2f &pos)
+	: Point2DObject(context, nullptr, pos, "PointObject")
 {
 
 }
@@ -129,9 +125,9 @@ bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos,
+bme::Point2DObject::Point2DObject(Context &context, const sf::Vector2f &pos,
 	const std::string &name)
-	: PointObject(context, nullptr, pos, name)
+	: Point2DObject(context, nullptr, pos, name)
 {
 
 }
@@ -150,8 +146,8 @@ bme::PointObject::PointObject(Context &context, const sf::Vector2f &pos,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::PointObject::PointObject(Context &context, const std::string &name)
-	: PointObject(context, nullptr, sf::Vector2f(), name)
+bme::Point2DObject::Point2DObject(Context &context, const std::string &name)
+	: Point2DObject(context, nullptr, sf::Vector2f(), name)
 {
 
 }

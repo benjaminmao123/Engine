@@ -12,6 +12,11 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base class for all Selectable objects.
+	///		Provides methods to set colors and add events
+	///		when a Selectable object is hovered over or selected.
+	/// </summary>
 	class DLLEXPORT Selectable
 	{
 	public:

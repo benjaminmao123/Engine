@@ -127,8 +127,8 @@ void bme::Button::CheckSelection()
 	ComputeBounds();
 
 	sf::Vector2f mousePosition = sf::Vector2f(
-		float(GetContext().GetInputManager().MousePosition().x),
-		float(GetContext().GetInputManager().MousePosition().y));
+		float(GetContext().GetInputManager().GetMousePosition().x),
+		float(GetContext().GetInputManager().GetMousePosition().y));
 
 	if (bounds.contains(mousePosition))
 	{

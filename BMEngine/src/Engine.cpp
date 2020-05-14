@@ -1,9 +1,3 @@
-/// <summary>
-///		The core class for the engine. 
-///		Handles initializing the Context, window information, 
-///		event polling, Start, Update, and Render for the scenes.
-/// </summary>
-
 #include "bmepch.h"
 #include "Engine.h"
 

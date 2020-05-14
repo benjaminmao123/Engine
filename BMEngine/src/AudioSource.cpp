@@ -1,8 +1,3 @@
-/// <summary>
-///		Class provides a way for the user to get sound
-///		into their game.
-/// </summary>
-
 #include "bmepch.h"
 #include "AudioSource.h"
 #include "SoundResource.h"

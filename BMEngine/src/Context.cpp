@@ -1,8 +1,3 @@
-/// <summary>
-///		Context class is used to provide necessary arguments that are used
-///		by Scenes, GameObjects, and Components.
-/// </summary>
-
 #include "bmepch.h"
 #include "Context.h"
 #include "SceneManager.h"

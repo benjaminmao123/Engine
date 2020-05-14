@@ -18,6 +18,12 @@
 
 namespace bme
 {
+	/// <summary>
+	///		The core class for the engine. 
+	///		Handles initializing the Context, window information, 
+	///		event polling, and calling Start(), Update(), and Render() for the 
+	///		scenes.
+	/// </summary>
 	class DLLEXPORT Engine
 	{
 	public:

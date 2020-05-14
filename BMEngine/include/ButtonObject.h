@@ -13,6 +13,9 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Premade UI button object.
+	/// </summary>
 	class DLLEXPORT ButtonObject : public GameObject
 	{
 	public:

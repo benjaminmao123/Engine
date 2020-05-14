@@ -1,7 +1,3 @@
-/// <summary>
-///		Premade UI button object.
-/// </summary>
-
 #include "bmepch.h"
 #include "ButtonObject.h"
 #include "Button.h"

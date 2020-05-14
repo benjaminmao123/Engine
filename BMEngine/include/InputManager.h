@@ -10,6 +10,10 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Handles all of the input polling and 
+	///		as well as button/axis.
+	/// </summary>
 	class DLLEXPORT InputManager
 	{
 	private:
@@ -32,8 +36,8 @@ namespace bme
 		bool GetKeyUp(sf::Mouse::Button button);
 		const WheelData &GetMouseWheelData() const;
 		void SetMouseWheelData(const sf::Event &event);
-		const sf::Vector2i MousePosition() const;
-		const sf::Vector2f MousePositionWorld() const;
+		const sf::Vector2i GetMousePosition() const;
+		const sf::Vector2f GetMousePositionWorld() const;
 
 	private:
 		void ResetMouseWheelData();

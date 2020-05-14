@@ -99,10 +99,11 @@
     <ClCompile Include="src\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PointObject.cpp">
+    <ClCompile Include="src\bmepch.cpp" />
+    <ClCompile Include="src\Collider.cpp" />
+    <ClCompile Include="src\Point2DObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\bmepch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AudioSource.h">
@@ -195,13 +196,14 @@
     <ClInclude Include="include\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PointObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\CS003A\Homework\PredatorPreySFML\PredatorPreySFML\include\BMEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\bmepch.h" />
+    <ClInclude Include="include\Collider.h" />
+    <ClInclude Include="include\Point2DObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -1,7 +1,3 @@
-/// <summary>
-///		Handles loading and retrieving font resources.
-/// </summary>
-
 #include "bmepch.h"
 #include "FontResource.h"
 

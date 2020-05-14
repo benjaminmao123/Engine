@@ -16,6 +16,9 @@ namespace bme
 	class Component;
 	class Context;
 
+	/// <summary>
+	///		Base GameObject class.
+	/// </summary>
 	class DLLEXPORT GameObject
 	{
 	public:
@@ -29,6 +32,7 @@ namespace bme
 
 		virtual ~GameObject();
 
+		void CheckDestroy();
 		virtual void Awake();
 		virtual void Start();
 		virtual void Update(const sf::Transform &parentTransform);
@@ -65,8 +69,8 @@ namespace bme
 		Context &GetContext();
 
 	private:
-		static GameObject *InstantiateHelper(GameObject *object);
-		static void DestroyHelper(GameObject *object, float waitTime = 0);
+		static GameObject *RecursiveInstantiate(GameObject *object);
+		void DestroyHelper(GameObject *object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponentInParent(const GameObject *parent);
@@ -84,6 +88,8 @@ namespace bme
 		std::string name;
 		int id;
 		static int nextID;
+		bool isDestroy;
+		float destroyTimer;
 	};
 	
 	/// <summary>

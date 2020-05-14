@@ -10,6 +10,9 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base Renderer class.
+	/// </summary>
 	class DLLEXPORT Renderer : public Component
 	{
 	public:

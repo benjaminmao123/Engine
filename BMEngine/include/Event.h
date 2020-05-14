@@ -8,6 +8,11 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base Event class which can be
+	///		overriden by the user to create
+	///		custom events.
+	/// </summary>
 	class DLLEXPORT Event
 	{
 	public:

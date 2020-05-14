@@ -1,9 +1,3 @@
-/// <summary>
-///		Base Event class which can be
-///		overriden by the user to create
-///		custom events.
-/// </summary>
-
 #include "bmepch.h"
 #include "Event.h"
 

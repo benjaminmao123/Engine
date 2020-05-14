@@ -13,6 +13,11 @@
 
 namespace bme
 {
+	///	<summary>
+	///		Handles all of the Resource management.
+	///		Resources are stored as pointers in a std::unordered_map
+	///		with the path as the key.
+	/// </summary>
 	class DLLEXPORT ResourceManager
 	{
 	public:
@@ -30,6 +35,17 @@ namespace bme
 	};
 }
 
+///	<summary>
+///		Adds a Resource to the ResourceManager from a given path.
+///		If the path already exists, then the id is returned, otherwise
+///		the Resource is added and -1 is returned.
+/// </summary>
+///	<param name="path">
+///		The path of the Resource to add.
+///	</param>
+///	<return>
+///		The id of the Resource if it already exists. Otherwise -1.
+///	</return>
 template <typename T>
 inline int bme::ResourceManager::Add(const std::string &path)
 {
@@ -54,6 +70,16 @@ inline int bme::ResourceManager::Add(const std::string &path)
 	return resource->ID();
 }
 
+///	<summary>
+///		Retrieves a Resource from the ResourceManager with the
+///		given id.
+/// </summary>
+///	<param name="id">
+///		The id of the Resource to retrieve.
+///	</param>
+///	<return>
+///		A pointer to the Resource.
+///	</return>
 template <typename T>
 inline T *bme::ResourceManager::Get(int id)
 {

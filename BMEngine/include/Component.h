@@ -13,6 +13,9 @@ namespace bme
 	class GameObject;
 	class Context;
 
+	/// <summary>
+	///		Base class inherited by all Component objects.
+	/// </summary>
 	class DLLEXPORT Component
 	{
 	public:

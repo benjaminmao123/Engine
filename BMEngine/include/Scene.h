@@ -14,6 +14,12 @@ namespace bme
 	class GameObject;
 	class Context;
 
+	/// <summary>
+	///		Base Scene class. Responsible for calling
+	///		the Awake(), Start(), Update(), LateUpdate(), Render() functions
+	///		of all GameObjects in the Scene.
+	///		Responsible for adding/removing GameObjects from the Scene.
+	/// </summary>
 	class Scene
 	{
 	public:

@@ -12,6 +12,10 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Point component that renders a point 
+	///		primitive onto the screen.
+	/// </summary>
 	class DLLEXPORT Point : public Renderer2D
 	{
 	public:

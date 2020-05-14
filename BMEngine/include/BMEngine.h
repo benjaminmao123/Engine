@@ -38,4 +38,4 @@
 #include "Text.h"
 #include "TextureResource.h"
 #include "TimeManager.h"
-#include "PointObject.h"
+#include "Point2DObject.h"

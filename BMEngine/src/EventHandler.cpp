@@ -1,8 +1,3 @@
-/// <summary>
-///		Handles invoking events, adding, and removing
-///		events.
-/// </summary>
-
 #include "bmepch.h"
 #include "EventHandler.h"
 #include "Event.h"

@@ -12,6 +12,10 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base Renderer2D class which supports rendering
+	///		for all 2D objects.
+	/// </summary>
 	class DLLEXPORT Renderer2D : public Renderer
 	{
 	public:

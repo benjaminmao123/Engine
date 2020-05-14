@@ -12,6 +12,11 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Camera component for the 2D world.
+	///		Renders the scene to a specific viewport that can be
+	///		set by the user.
+	/// </summary>
 	class DLLEXPORT Camera2D : public Component
 	{
 	public:

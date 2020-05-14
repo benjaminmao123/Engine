@@ -13,6 +13,10 @@
 
 namespace bme
 {
+	/// <summary>
+	///		A premade Camera Object for 2D rendering which can be initialized
+	///		to a specific viewport.
+	/// </summary>
 	class DLLEXPORT Camera2DObject : public GameObject
 	{
 	public:

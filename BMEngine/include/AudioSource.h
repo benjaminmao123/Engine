@@ -13,6 +13,10 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Class provides a way for the user to get sound
+	///		into their game. Sounds are stored in sf::Sound objects.
+	/// </summary>
 	class DLLEXPORT AudioSource : public Component
 	{
 	public:

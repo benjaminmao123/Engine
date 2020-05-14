@@ -1,7 +1,3 @@
-/// <summary>
-///		Base GameObject class.
-/// </summary>
-
 #include "bmepch.h"
 #include "GameObject.h"
 #include "Scene.h"
@@ -10,6 +6,7 @@
 #include "SceneManager.h"
 #include "Renderer.h"
 #include "TimeManager.h"
+#include <iostream>
 
 int bme::GameObject::nextID = 0;
 
@@ -36,7 +33,7 @@ int bme::GameObject::nextID = 0;
 bme::GameObject::GameObject(Context &context, GameObject *parent, 
 							const sf::Vector2f &pos, const std::string &name)
 	: context(context), parent(parent), name(name), isEnabled(true),
-	  id(nextID++)
+	  id(nextID++), isDestroy(false), destroyTimer(0)
 {
 	transformable.setPosition(pos);
 }
@@ -177,6 +174,25 @@ bme::GameObject::~GameObject()
 
 	for (auto &go : children)
 		delete go;
+}
+
+/// <summary>
+///		Calls the Destroy function of each GameObject marked
+///		for deletion.
+/// </summary>
+///	<returns>
+///		void
+///	</returns>
+void bme::GameObject::CheckDestroy()
+{
+	if (isDestroy)
+		Destroy(this, destroyTimer);
+	else
+		for (auto &go : children)
+		{
+			if (go->isEnabled)
+				go->CheckDestroy();
+		}
 }
 
 /// <summary>
@@ -360,7 +376,7 @@ bme::GameObject *bme::GameObject::GetChild(const std::string &name)
 ///	</returns>
 bme::GameObject *bme::GameObject::Instantiate(GameObject *object)
 {
-	GameObject *clone = object->InstantiateHelper(object);
+	GameObject *clone = object->RecursiveInstantiate(object);
 	clone->parent = nullptr;
 	object->context.GetSceneManager().CurrentScene()->AddGameObject(clone);
 
@@ -382,7 +398,7 @@ bme::GameObject *bme::GameObject::Instantiate(GameObject *object)
 ///	</returns>
 bme::GameObject *bme::GameObject::Instantiate(GameObject *object, GameObject *parent)
 {
-	GameObject *clone = object->InstantiateHelper(object);
+	GameObject *clone = object->RecursiveInstantiate(object);
 	clone->parent = parent;
 	parent->AddChild(clone);
 
@@ -404,7 +420,9 @@ bme::GameObject *bme::GameObject::Instantiate(GameObject *object, GameObject *pa
 ///	</returns>
 void bme::GameObject::Destroy(GameObject *object, float waitTime)
 {
-	auto ret = std::async(std::launch::async, &GameObject::DestroyHelper, std::ref(object), waitTime);
+	object->destroyTimer = waitTime;
+	object->isDestroy = true;
+	object->DestroyHelper(object, waitTime);
 }
 
 /// <summary>
@@ -544,7 +562,7 @@ bme::Context &bme::GameObject::GetContext()
 ///	<returns>
 ///		A pointer to the GameObject that was created.
 ///	</returns>
-bme::GameObject *bme::GameObject::InstantiateHelper(GameObject *object)
+bme::GameObject *bme::GameObject::RecursiveInstantiate(GameObject *object)
 {
 	GameObject *clone = nullptr;
 
@@ -554,21 +572,20 @@ bme::GameObject *bme::GameObject::InstantiateHelper(GameObject *object)
 
 		for (const auto &go : object->children)
 		{
-			GameObject *child = InstantiateHelper(go);
+			GameObject *child = RecursiveInstantiate(go);
 			child->parent = clone;
 			clone->children.push_back(child);
 		}
 
-		for (const auto &i : object->components)
-			clone->components.push_back(i->Clone(clone));
+		for (const auto &c : object->components)
+			clone->components.push_back(c->Clone(clone));
 	}
 
 	return clone;
 }
 
 /// <summary>
-///		Helper function to destroy a GameObject. Operation
-///		is performed asychronously.
+///		Helper function to destroy a GameObject after an elapsed time.
 /// </summary>
 ///	<param name="object">
 ///		The GameObject to destroy.
@@ -577,14 +594,14 @@ bme::GameObject *bme::GameObject::InstantiateHelper(GameObject *object)
 ///		The time to wait before destroying the object.
 ///	</param>
 ///	<returns>
-///		A pointer to the GameObject that was created.
+///		void
 ///	</returns>
 void bme::GameObject::DestroyHelper(GameObject *object, float waitTime)
 {
-	float elapsedTime = 0;
+	static float elapsedTime = 0;
 
-	while (elapsedTime < waitTime)
+	if (elapsedTime < waitTime)
 		elapsedTime += object->GetContext().GetTimeManager().GetDeltaTime();
-
-	object->GetContext().GetSceneManager().CurrentScene()->RemoveGameObject(object, object->GetID());
+	else
+		object->GetContext().GetSceneManager().CurrentScene()->RemoveGameObject(object, object->GetID());
 }

@@ -12,6 +12,12 @@ namespace bme
 {
 	class Scene;
 
+	/// <summary>
+	///		Manages all of the Scenes in the game.
+	///		Responsible for calling the Awake(), Start(),
+	///		Update(), and LateUpdate() methods of the Scenes.
+	///		Scenes are stored as pointers in a std::vector.
+	/// </summary>
 	class SceneManager
 	{
 	public:

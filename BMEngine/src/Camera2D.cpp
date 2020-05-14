@@ -1,9 +1,3 @@
-/// <summary>
-///		Camera component for the 2D world.
-///		Renders the scene to a specific viewport that can be
-///		set by the user.
-/// </summary>
-
 #include "bmepch.h"
 #include "Camera2D.h"
 #include "Context.h"
