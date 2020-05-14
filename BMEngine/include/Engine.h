@@ -6,6 +6,9 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <string>
+#include <SFML\Graphics.hpp>
+
 #include "Context.h"
 #include "Scene.h"
 #include "SceneManager.h"

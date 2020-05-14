@@ -6,6 +6,9 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <SFML\Audio.hpp>
+#include <string>
+
 #include "Component.h"
 
 namespace bme

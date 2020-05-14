@@ -6,6 +6,9 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <SFML\Graphics.hpp>
+#include <string>
+
 #include "Renderer2D.h"
 
 namespace bme

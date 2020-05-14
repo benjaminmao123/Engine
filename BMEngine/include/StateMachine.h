@@ -6,6 +6,8 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <unordered_map>
+
 #include "Component.h"
 
 namespace bme

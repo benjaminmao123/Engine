@@ -6,6 +6,8 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <string>
+
 namespace bme
 {
 	class DLLEXPORT Resource

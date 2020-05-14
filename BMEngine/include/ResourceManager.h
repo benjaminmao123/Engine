@@ -6,6 +6,9 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <unordered_map>
+#include <string>
+
 #include "Resource.h"
 
 namespace bme

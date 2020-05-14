@@ -6,6 +6,10 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <SFML\Graphics.hpp>
+#include <string>
+#include <vector>
+
 namespace bme
 {
 	class Scene;
@@ -33,8 +37,8 @@ namespace bme
 
 		void AddChild(GameObject *object);
 		GameObject *GetChild(const std::string &name);
-		static GameObject *Instantiate(const GameObject *object);
-		static GameObject *Instantiate(const GameObject *object, GameObject *parent);
+		static GameObject *Instantiate(GameObject *object);
+		static GameObject *Instantiate(GameObject *object, GameObject *parent);
 		static void Destroy(GameObject *&object, float waitTime = 0);
 
 		template <typename T>
@@ -60,8 +64,8 @@ namespace bme
 		Context &GetContext();
 
 	private:
-		GameObject *InstantiateHelper(const GameObject *object) const;
-		void DestroyHelper(GameObject *&object, float waitTime = 0);
+		static GameObject *InstantiateHelper(GameObject *object);
+		static void DestroyHelper(GameObject *&object, float waitTime = 0);
 
 		template <typename T>
 		T *GetComponentInParent(const GameObject *parent);

@@ -9,6 +9,7 @@
 #include "Context.h"
 #include "SceneManager.h"
 #include "Renderer.h"
+#include "TimeManager.h"
 
 int bme::GameObject::nextID = 0;
 
@@ -357,7 +358,7 @@ bme::GameObject *bme::GameObject::GetChild(const std::string &name)
 ///	<returns>
 ///		A pointer to the GameObject that was created.
 ///	</returns>
-bme::GameObject *bme::GameObject::Instantiate(const GameObject *object)
+bme::GameObject *bme::GameObject::Instantiate(GameObject *object)
 {
 	GameObject *clone = object->InstantiateHelper(object);
 	clone->parent = nullptr;
@@ -379,7 +380,7 @@ bme::GameObject *bme::GameObject::Instantiate(const GameObject *object)
 ///	<returns>
 ///		A pointer to the GameObject that was created.
 ///	</returns>
-bme::GameObject *bme::GameObject::Instantiate(const GameObject *object, GameObject *parent)
+bme::GameObject *bme::GameObject::Instantiate(GameObject *object, GameObject *parent)
 {
 	GameObject *clone = object->InstantiateHelper(object);
 	clone->parent = parent;
@@ -403,7 +404,7 @@ bme::GameObject *bme::GameObject::Instantiate(const GameObject *object, GameObje
 ///	</returns>
 void bme::GameObject::Destroy(GameObject *&object, float waitTime)
 {
-	
+	auto ret = std::async(std::launch::async, &GameObject::DestroyHelper, std::ref(object), waitTime);
 }
 
 /// <summary>
@@ -532,13 +533,13 @@ bme::Context &bme::GameObject::GetContext()
 ///	<returns>
 ///		A pointer to the GameObject that was created.
 ///	</returns>
-bme::GameObject *bme::GameObject::InstantiateHelper(const GameObject *object) const
+bme::GameObject *bme::GameObject::InstantiateHelper(GameObject *object)
 {
 	GameObject *clone = nullptr;
 
 	if (object)
 	{
-		clone = new GameObject(context);
+		clone = new GameObject(object->GetContext());
 
 		for (const auto &go : object->children)
 		{
@@ -569,11 +570,11 @@ bme::GameObject *bme::GameObject::InstantiateHelper(const GameObject *object) co
 ///	</returns>
 void bme::GameObject::DestroyHelper(GameObject *&object, float waitTime)
 {
-	static float elapsedTime = 0;
+	float elapsedTime = 0;
 
-	if (elapsedTime >= waitTime)
-	{
-		delete object;
-		object = nullptr;
-	}
+	while (elapsedTime < waitTime)
+		elapsedTime += object->GetContext().GetTimeManager().GetDeltaTime();
+
+	delete object;
+	object = nullptr;
 }

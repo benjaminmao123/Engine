@@ -1,5 +1,8 @@
 #pragma once
 
+#include <SFML\Graphics.hpp>
+#include <string>
+
 #include "GameObject.h"
 
 namespace bme

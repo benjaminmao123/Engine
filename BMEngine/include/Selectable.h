@@ -6,6 +6,8 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <SFML\Graphics.hpp>
+
 #include "EventHandler.h"
 
 namespace bme

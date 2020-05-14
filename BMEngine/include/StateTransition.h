@@ -6,6 +6,8 @@
 #define DLLEXPORT __declspec(dllimport)  
 #endif
 
+#include <vector>
+
 namespace bme
 {
 	class State;
@@ -21,7 +23,6 @@ namespace bme
 
 	private:
 		std::vector<StateCondition *> conditions;
-
 		State *start;
 		State *dest;
 	};

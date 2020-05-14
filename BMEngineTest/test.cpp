@@ -1,6 +1,10 @@
 #include "pch.h"
+#include "BMEngine.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+using namespace bme;
+
+TEST(DestroyGO, Destroy) 
+{
+    EXPECT_EQ(1, 1);
+    EXPECT_TRUE(true);
 }
