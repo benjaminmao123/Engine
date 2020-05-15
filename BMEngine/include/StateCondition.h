@@ -8,6 +8,12 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Base class for all StateCondition objects.
+	///		StateConditions are used with StateTransitions to
+	///		specify a condition for switching to another State.
+	///		All derived classes must override the Evaluate() method.
+	///	</summary>
 	class DLLEXPORT StateCondition
 	{
 	public:

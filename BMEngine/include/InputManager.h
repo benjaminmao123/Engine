@@ -17,6 +17,10 @@ namespace bme
 	class DLLEXPORT InputManager
 	{
 	private:
+		/// <summary>
+		///		Contains the x, y, and amount scrolled for
+		///		the mouse wheel.
+		/// </summary>
 		struct WheelData
 		{
 			int delta;

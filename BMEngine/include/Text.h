@@ -27,6 +27,9 @@ namespace bme
 		Bottom
 	};
 
+	/// <summary>
+	///		Text UI Component to draw text onto the screen.
+	///	</summary>
 	class DLLEXPORT Text : public Renderer2D
 	{
 	public:

@@ -10,6 +10,9 @@
 
 namespace bme
 {
+	///	<summary>
+	///		Handles all of the calculations related to time.
+	///	</summary>
 	class DLLEXPORT TimeManager
 	{
 	public:

@@ -13,6 +13,11 @@ namespace bme
 {
 	class StateTransition;
 
+	/// <summary>
+	///		Base State class to be used with StateMachine class.
+	///		Any derived State class will have a
+	///		unique id and a vector of transitions.
+	/// </summary>
 	class DLLEXPORT State
 	{
 	public:

@@ -13,6 +13,11 @@
 
 namespace bme
 {
+	///	<summary>
+	///		Resource class that handles textures.
+	///		Uses sf::Texture objects to store loaded
+	///		textures.
+	/// </summary>
 	class DLLEXPORT TextureResource : public Resource
 	{
 	public:

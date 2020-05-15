@@ -12,6 +12,11 @@
 
 namespace bme
 {
+	///	<summary>
+	///		Resource class that handles sound.
+	///		Uses sf::SoundBuffer objects to store loaded
+	///		sounds.
+	/// </summary>
 	class DLLEXPORT SoundResource : public Resource
 	{
 	public:

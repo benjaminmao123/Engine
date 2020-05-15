@@ -6,11 +6,17 @@
 
 namespace bme
 {
+	/// <summary>
+	///		Contains information about collisions.
+	///	</summary>
 	struct Collision
 	{
 		bool colliding = false;
 	};
 
+	/// <summary>
+	///		The base class for all Collider Components.
+	///	</summary>
 	class Collider : public Component
 	{
 	public:

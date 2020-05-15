@@ -13,6 +13,12 @@ namespace bme
 	class State;
 	class StateCondition;
 
+	/// <summary>
+	///		Transitions for the StateMachine.
+	///		Each State object will have a list of StateTransitions.
+	///		A transition consists of a starting state, ending state,
+	///		and a list of conditions.
+	///	</summary>
 	class DLLEXPORT StateTransition
 	{
 	public:

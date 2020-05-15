@@ -1,8 +1,3 @@
-/// <summary>
-///		Serves as the Button Component for users to
-///		use when creating UI.
-/// </summary>
-
 #include "bmepch.h"
 #include "Button.h"
 #include "GameObject.h"
@@ -164,7 +159,7 @@ void bme::Button::Load(const std::string &path)
 ///		Loads a texture into the frame from the ResourceManager if it already exists.
 /// </summary>
 /// <param name="id">
-///		The id of the sound to load.
+///		The id of the texture to load.
 ///	</param>
 ///	<returns>
 ///		void

@@ -14,6 +14,9 @@ namespace bme
 {
 	class State;
 
+	/// <summary>
+	///		The base StateMachine Component class.
+	///	</summary>
 	class DLLEXPORT StateMachine : public Component
 	{
 	public:

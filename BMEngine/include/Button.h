@@ -16,6 +16,10 @@ namespace bme
 {
 	class Text;
 
+	/// <summary>
+	///		Serves as the Button Component for users to
+	///		use when creating UI.
+	/// </summary>
 	class DLLEXPORT Button : public Renderer2D, public Selectable
 	{
 	public:
