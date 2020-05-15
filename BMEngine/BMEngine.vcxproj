@@ -24,10 +24,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\BoxCollider2D.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\ButtonObject.cpp" />
     <ClCompile Include="src\Camera2D.cpp" />
-    <ClCompile Include="src\Camera2DObject.cpp" />
+    <ClCompile Include="src\CameraObject2D.cpp" />
     <ClCompile Include="src\Collider.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Context.cpp" />
@@ -37,8 +38,8 @@
     <ClCompile Include="src\FontResource.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
-    <ClCompile Include="src\Point.cpp" />
-    <ClCompile Include="src\Point2DObject.cpp" />
+    <ClCompile Include="src\Point2D.cpp" />
+    <ClCompile Include="src\PointObject2D.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Renderer2D.cpp" />
     <ClCompile Include="src\Resource.cpp" />
@@ -60,10 +61,11 @@
     <ClInclude Include="..\..\CS003A\Homework\PredatorPreySFML\PredatorPreySFML\include\BMEngine.h" />
     <ClInclude Include="include\AudioSource.h" />
     <ClInclude Include="include\bmepch.h" />
+    <ClInclude Include="include\BoxCollider2D.h" />
     <ClInclude Include="include\Button.h" />
     <ClInclude Include="include\ButtonObject.h" />
     <ClInclude Include="include\Camera2D.h" />
-    <ClInclude Include="include\Camera2DObject.h" />
+    <ClInclude Include="include\CameraObject2D.h" />
     <ClInclude Include="include\Collider.h" />
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\Context.h" />
@@ -73,8 +75,8 @@
     <ClInclude Include="include\FontResource.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\InputManager.h" />
-    <ClInclude Include="include\Point.h" />
-    <ClInclude Include="include\Point2DObject.h" />
+    <ClInclude Include="include\Point2D.h" />
+    <ClInclude Include="include\PointObject2D.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\Renderer2D.h" />
     <ClInclude Include="include\Resource.h" />

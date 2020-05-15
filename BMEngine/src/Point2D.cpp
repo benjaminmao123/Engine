@@ -1,5 +1,5 @@
 #include "bmepch.h"
-#include "Point.h"
+#include "Point2D.h"
 #include "Context.h"
 #include "GameObject.h"
 
@@ -20,7 +20,7 @@
 ///	<return>
 ///		void
 ///	</return>
-bme::Point::Point(GameObject *owner, Context &context, int zOrder)
+bme::Point2D::Point2D(GameObject *owner, Context &context, int zOrder)
 	: Renderer2D(owner, context, zOrder), point(10)
 {
 
@@ -32,7 +32,7 @@ bme::Point::Point(GameObject *owner, Context &context, int zOrder)
 ///	<return>
 ///		void
 ///	</return>
-void bme::Point::Render()
+void bme::Point2D::Render()
 {
 	GetContext().GetWindow().draw(point, GetWorldTransform());
 }
@@ -47,9 +47,9 @@ void bme::Point::Render()
 ///	<return>
 ///		void
 ///	</return>
-bme::Point *bme::Point::Clone(GameObject *owner)
+bme::Point2D *bme::Point2D::Clone(GameObject *owner)
 {
-	Point *clone = new Point(owner, GetContext());
+	Point2D *clone = new Point2D(owner, GetContext());
 	clone->SetExecutionOrder(GetExecutionOrder());
 	clone->point = point;
 	clone->SetZOrder(GetZOrder());
@@ -65,7 +65,7 @@ bme::Point *bme::Point::Clone(GameObject *owner)
 ///	<return>
 ///		The sf::CircleShape object representing the point.
 ///	</return>
-sf::CircleShape &bme::Point::GetPoint()
+sf::CircleShape &bme::Point2D::GetPoint()
 {
 	return point;
 }

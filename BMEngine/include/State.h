@@ -22,6 +22,7 @@ namespace bme
 	{
 	public:
 		State(const std::string &name);
+		State(const State &rhs);
 		virtual ~State();
 
 		virtual void OnStateEnter();

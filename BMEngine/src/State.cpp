@@ -22,6 +22,22 @@ bme::State::State(const std::string &name)
 }
 
 ///	<summary>
+///		Copy constructor.
+/// </summary>
+///	<param name="rhs">
+///		The State object to copy.
+///	</param>
+///	<return>
+///		void
+///	</return>
+bme::State::State(const State &rhs)
+	: name(rhs.name), id(nextID++),
+	  transitions(rhs.transitions)
+{
+
+}
+
+///	<summary>
 ///		virtual destructor.
 /// </summary>
 ///	<return>

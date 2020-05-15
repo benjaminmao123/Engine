@@ -16,12 +16,12 @@ namespace bme
 	///		Point component that renders a point 
 	///		primitive onto the screen.
 	/// </summary>
-	class DLLEXPORT Point : public Renderer2D
+	class DLLEXPORT Point2D : public Renderer2D
 	{
 	public:
-		Point(GameObject *owner, Context &context, int zOrder = 0);
+		Point2D(GameObject *owner, Context &context, int zOrder = 0);
 
-		virtual Point *Clone(GameObject *owner) override;
+		virtual Point2D *Clone(GameObject *owner) override;
 
 		sf::CircleShape &GetPoint();
 

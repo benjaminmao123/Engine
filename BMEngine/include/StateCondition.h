@@ -19,6 +19,6 @@ namespace bme
 	public:
 		virtual ~StateCondition();
 
-		virtual bool Evaluate() const = 0;
+		virtual bool Evaluate();
 	};
 }

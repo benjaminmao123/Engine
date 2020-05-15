@@ -45,9 +45,6 @@
     <ClCompile Include="src\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Point.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Renderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
     <ClCompile Include="src\TimeManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera2DObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -101,9 +95,16 @@
     </ClCompile>
     <ClCompile Include="src\bmepch.cpp" />
     <ClCompile Include="src\Collider.cpp" />
-    <ClCompile Include="src\Point2DObject.cpp">
+    <ClCompile Include="src\CameraObject2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\PointObject2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Point2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BoxCollider2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AudioSource.h">
@@ -140,9 +141,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\InputManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Renderer2D.h">
@@ -187,9 +185,6 @@
     <ClInclude Include="include\TimeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Camera2DObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -201,7 +196,14 @@
     </ClInclude>
     <ClInclude Include="include\bmepch.h" />
     <ClInclude Include="include\Collider.h" />
-    <ClInclude Include="include\Point2DObject.h">
+    <ClInclude Include="include\BoxCollider2D.h" />
+    <ClInclude Include="include\CameraObject2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PointObject2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Point2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

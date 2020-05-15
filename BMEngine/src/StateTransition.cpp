@@ -23,6 +23,22 @@ bme::StateTransition::StateTransition(State *start, State *dest)
 }
 
 ///	<summary>
+///		Copy constructor.
+///	</summary>
+///	<param name="rhs">
+///		The object to copy.
+///	</param>
+///	<return>
+///		void
+///	</return>
+bme::StateTransition::StateTransition(const StateTransition &rhs)
+	: start(new State(*rhs.start)), dest(new State(*rhs.dest))
+{
+	for (auto &condition : rhs.conditions)
+		AddCondition(new StateCondition(*condition));
+}
+
+///	<summary>
 ///		Checks whether or not the conditions are met to
 ///		go to the next state.
 ///	</summary>

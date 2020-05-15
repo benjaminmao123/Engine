@@ -1,9 +1,10 @@
 #include "bmepch.h"
-#include "Camera2DObject.h"
-#include "Camera2D.h"
+#include "PointObject2D.h"
+#include "Context.h"
+#include "Point2D.h"
 
 /// <summary>
-///		Parameterized constructor. 
+///		Overloaded constructor. 
 ///		Initializes context, the parent of the object, position, and name.
 /// </summary>
 /// <param name="context">
@@ -22,12 +23,11 @@
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent, 
-								const sf::Vector2f &pos, 
-								const std::string &name)
+bme::PointObject2D::PointObject2D(Context &context, GameObject *parent,
+	const sf::Vector2f &pos, const std::string &name)
 	: GameObject(context, parent, pos, name)
 {
-	AddComponent<Camera2D>();
+	AddComponent<Point2D>();
 }
 
 /// <summary>
@@ -41,8 +41,8 @@ bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent,
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context)
-	: Camera2DObject(context, nullptr, sf::Vector2f(), "CameraObject")
+bme::PointObject2D::PointObject2D(Context &context)
+	: PointObject2D(context, nullptr, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -61,8 +61,8 @@ bme::Camera2DObject::Camera2DObject(Context &context)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent)
-	: Camera2DObject(context, parent, sf::Vector2f(), "CameraObject")
+bme::PointObject2D::PointObject2D(Context &context, GameObject *parent)
+	: PointObject2D(context, parent, sf::Vector2f(), "PointObject")
 {
 
 }
@@ -84,8 +84,9 @@ bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent, const sf::Vector2f &pos)
-	: Camera2DObject(context, parent, pos, "CameraObject")
+bme::PointObject2D::PointObject2D(Context &context, GameObject *parent,
+	const sf::Vector2f &pos)
+	: PointObject2D(context, parent, pos, "PointObject")
 {
 
 }
@@ -104,8 +105,8 @@ bme::Camera2DObject::Camera2DObject(Context &context, GameObject *parent, const 
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos)
-	: Camera2DObject(context, nullptr, pos, "CameraObject")
+bme::PointObject2D::PointObject2D(Context &context, const sf::Vector2f &pos)
+	: PointObject2D(context, nullptr, pos, "PointObject")
 {
 
 }
@@ -124,8 +125,9 @@ bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos)
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos, const std::string &name)
-	: Camera2DObject(context, nullptr, pos, name)
+bme::PointObject2D::PointObject2D(Context &context, const sf::Vector2f &pos,
+	const std::string &name)
+	: PointObject2D(context, nullptr, pos, name)
 {
 
 }
@@ -144,8 +146,8 @@ bme::Camera2DObject::Camera2DObject(Context &context, const sf::Vector2f &pos, c
 ///	<returns>
 ///		void
 ///	</returns>
-bme::Camera2DObject::Camera2DObject(Context &context, const std::string &name)
-	: Camera2DObject(context, nullptr, sf::Vector2f(), name)
+bme::PointObject2D::PointObject2D(Context &context, const std::string &name)
+	: PointObject2D(context, nullptr, sf::Vector2f(), name)
 {
 
 }

@@ -23,6 +23,7 @@ namespace bme
 	{
 	public:
 		StateTransition(State *start, State *dest);
+		StateTransition(const StateTransition &rhs);
 
 		State *Evaluate();
 		void AddCondition(StateCondition *condition);

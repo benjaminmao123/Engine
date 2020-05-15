@@ -68,6 +68,27 @@ void bme::StateMachine::Update()
 }
 
 /// <summary>
+///		Clones this Component.
+/// </summary>
+///	<param name="owner">
+///		The owner of the clone.
+///	</param>
+///	<return>
+///		A pointer to the new clone.
+///	</return>
+bme::StateMachine *bme::StateMachine::Clone(GameObject *owner)
+{
+	StateMachine *clone = new StateMachine(owner, GetContext());
+	clone->SetIsEnabled(GetIsEnabled());
+	clone->SetExecutionOrder(GetExecutionOrder());
+	
+	for (const auto &pair : states)
+		clone->states[pair.first] = new State(*pair.second);
+
+	return clone;
+}
+
+/// <summary>
 ///		Calls the Evaluate() method for the activeState
 ///		every frame. If Evaluate() returns true, 
 ///		calls the OnStateExit() method, sets the 

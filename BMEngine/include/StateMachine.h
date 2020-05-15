@@ -25,6 +25,7 @@ namespace bme
 
 		virtual void Start() override;
 		virtual void Update() override;
+		virtual StateMachine *Clone(GameObject *owner) override;
 
 		void AddState(State *state);
 		void AddTransition(State *start, State *end);
