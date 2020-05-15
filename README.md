@@ -1,6 +1,6 @@
 # BM Engine
 
-BM Engine is primarily an early-stage interactive application and rendering engine for Windows.
+BM Engine is primarily an early-stage interactive application and rendering engine for Windows. The core of BM Engine is currently being built upon the SFML and OpenGL graphic libraries.
 
 ### Main features to come:
 - Fast 2D rendering (UI, particles, sprites, etc.)
