@@ -39,3 +39,4 @@
 #include "TextureResource.h"
 #include "TimeManager.h"
 #include "PointObject2D.h"
+#include "BoxCollider2D.h"
